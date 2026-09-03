@@ -101,6 +101,7 @@ section { padding: 3.5rem 0; }
 
 /* ---------- Badges / trust cues ---------- */
 .badge-row { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 1.5rem; }
+.hero-ctas-row .badge-row { margin-top: 0; gap: 1.1rem 1.5rem; }
 .badge {
   display: flex; align-items: center; gap: .6rem;
   font-weight: 700; font-size: .92rem; color: var(--white);
@@ -116,7 +117,7 @@ section { padding: 3.5rem 0; }
 .site-header { background: var(--white); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 500; }
 .header-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 0; }
 .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; flex: none; }
-.brand img { height: 84px; width: auto; }
+.brand img { height: 132px; width: auto; }
 .brand-text { display: none; }
 .header-contact { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .contact-link { display: flex; align-items: center; gap: .5rem; font-weight: 700; color: var(--navy); text-decoration: none; font-size: .98rem; }
@@ -146,10 +147,10 @@ section { padding: 3.5rem 0; }
   position: relative;
   color: var(--white);
   background-size: cover;
-  background-position: center 55%;
+  background-position: center 42%;
   background-color: var(--navy);
   overflow: hidden;
-  min-height: 560px;
+  min-height: 400px;
   display: flex;
   align-items: center;
 }
@@ -159,9 +160,10 @@ section { padding: 3.5rem 0; }
   background: linear-gradient(90deg, rgba(7,26,53,.62) 0%, rgba(7,26,53,.46) 38%, rgba(7,26,53,.2) 68%, rgba(7,26,53,.08) 100%);
   pointer-events: none;
 }
-.hero-inner { position: relative; padding: 4.5rem 0 4rem; max-width: 620px; width: 100%; }
-.hero h1 { color: var(--white); font-size: clamp(2.1rem, 5vw, 3.1rem); text-transform: uppercase; letter-spacing: .01em; margin-bottom: .6rem; text-shadow: 0 2px 14px rgba(0,0,0,.45); }
-.hero .lede { font-size: 1.15rem; color: rgba(255,255,255,.96); max-width: 520px; margin-bottom: 1.75rem; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+.hero-inner { position: relative; padding: 2.75rem 0; max-width: none; width: 100%; }
+.hero h1 { color: var(--white); font-size: clamp(2.4rem, 6vw, 3.8rem); text-transform: uppercase; letter-spacing: .01em; margin-bottom: .6rem; max-width: 780px; text-shadow: 0 2px 14px rgba(0,0,0,.45); }
+.hero .lede { font-size: 1.15rem; color: rgba(255,255,255,.96); max-width: 520px; margin-bottom: 1.5rem; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+.hero-ctas-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 2rem; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
 .page-hero {
@@ -392,6 +394,7 @@ section { padding: 3.5rem 0; }
 }
 
 @media (max-width: 760px) {
+  .brand img { height: 92px; }
   .header-top { flex-wrap: wrap; row-gap: .6rem; }
   .header-contact .contact-link.email { display: none; }
   .contact-link .sub { display: none; }
@@ -406,7 +409,9 @@ section { padding: 3.5rem 0; }
   .nav-list.is-open { display: flex; }
   .nav-list a { padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.08); }
   .main-nav { position: relative; }
-  .hero-inner { padding: 3rem 0 2.75rem; max-width: 100%; }
+  .hero { min-height: 340px; background-position: center 38%; }
+  .hero-inner { padding: 2.5rem 0; max-width: 100%; }
+  .hero-ctas-row { gap: 1rem 1.5rem; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; padding: 2.5rem 0 2rem; }
   .instructor-card { flex-direction: column; align-items: center; text-align: center; }
@@ -417,7 +422,7 @@ section { padding: 3.5rem 0; }
 }
 
 @media (max-width: 500px) {
-  .brand img { height: 58px; }
+  .brand img { height: 74px; }
   .header-top { padding: .65rem 0; }
   .btn { width: 100%; }
   .hero-ctas .btn { width: auto; }
