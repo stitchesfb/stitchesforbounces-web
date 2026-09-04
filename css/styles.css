@@ -183,6 +183,7 @@ section { padding: 3.5rem 0; }
 .trust-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem; padding: 2rem 0; text-align: center;
+  max-width: 880px; margin: 0 auto;
 }
 .trust-item { display: flex; flex-direction: column; align-items: center; gap: .35rem; }
 .trust-item .num { font-size: 1.9rem; font-weight: 800; color: var(--navy); display: flex; align-items: center; gap: .4rem; }
@@ -192,6 +193,7 @@ section { padding: 3.5rem 0; }
 /* ---------- Cards ---------- */
 .grid { display: grid; gap: 1.5rem; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
+#services .grid-3 > :nth-child(7):last-child { grid-column: 2; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
@@ -221,7 +223,8 @@ section { padding: 3.5rem 0; }
 .service-card h3 { font-size: 1.08rem; margin-bottom: .5rem; }
 .service-card p { color: var(--gray-600); font-size: .92rem; margin-bottom: 1rem; flex: 1; }
 .service-card .link { font-weight: 700; color: var(--red); text-decoration: none; font-size: .9rem; display: inline-flex; align-items: center; gap: .3rem; }
-.service-card .link:hover { text-decoration: underline; }
+a.service-card { text-decoration: none; color: inherit; }
+a.service-card:hover .link { text-decoration: underline; }
 
 .badge-pill {
   display: inline-block; background: var(--gray-100); color: var(--navy);
@@ -389,6 +392,7 @@ section { padding: 3.5rem 0; }
   .two-col img { max-height: 340px; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   .proof-grid { grid-template-columns: 1fr; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -416,6 +420,7 @@ section { padding: 3.5rem 0; }
   .footer-grid { grid-template-columns: 1fr; padding: 2.5rem 0 2rem; }
   .instructor-card { flex-direction: column; align-items: center; text-align: center; }
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   .cta-banner .container { flex-direction: column; text-align: center; }
   .cta-banner .msg { flex-direction: column; }
   section { padding: 2.5rem 0; }
