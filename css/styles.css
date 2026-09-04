@@ -211,15 +211,7 @@ section { padding: 3.5rem 0; }
 .service-card { padding: 0; }
 .service-card .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-100); position: relative; }
 .service-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
-.service-card .icon-badge {
-  position: absolute; bottom: -22px; left: 20px;
-  width: 46px; height: 46px; border-radius: 50%;
-  background: var(--navy); color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow);
-}
-.service-card .icon-badge svg { width: 22px; height: 22px; }
-.service-card .body { padding: 2rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.service-card .body { padding: 1.5rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
 .service-card h3 { font-size: 1.08rem; margin-bottom: .5rem; }
 .service-card p { color: var(--gray-600); font-size: .92rem; margin-bottom: 1rem; flex: 1; }
 .service-card .link { font-weight: 700; color: var(--red); text-decoration: none; font-size: .9rem; display: inline-flex; align-items: center; gap: .3rem; }
