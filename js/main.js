@@ -120,6 +120,17 @@
     });
   });
 
+  /* Shrink the sticky header once the page scrolls past a threshold */
+  var siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    var SCROLL_THRESHOLD = 70;
+    var applyHeaderScrollState = function () {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > SCROLL_THRESHOLD);
+    };
+    applyHeaderScrollState();
+    window.addEventListener("scroll", applyHeaderScrollState, { passive: true });
+  }
+
   /* Footer year */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

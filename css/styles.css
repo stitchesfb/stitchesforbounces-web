@@ -115,16 +115,23 @@ section { padding: 3.5rem 0; }
 
 /* ---------- Header ---------- */
 .site-header { background: var(--white); border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; z-index: 500; }
-.header-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 0; }
+.header-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 0; transition: padding .25s ease; }
 .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; flex: none; }
-.brand img { height: 132px; width: auto; }
+.brand img { height: 132px; width: auto; transition: height .25s ease; }
 .brand-text { display: none; }
 .header-contact { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .contact-link { display: flex; align-items: center; gap: .5rem; font-weight: 700; color: var(--navy); text-decoration: none; font-size: .98rem; }
 .contact-link svg { width: 19px; height: 19px; color: var(--red); flex: none; }
-.contact-link .sub { display: block; font-weight: 500; font-size: .74rem; color: var(--gray-600); }
+.contact-link .sub { display: block; font-weight: 500; font-size: .74rem; color: var(--gray-600); transition: opacity .2s ease, max-height .2s ease; }
 .header-cta { display: flex; flex-direction: column; align-items: flex-end; gap: .25rem; }
-.header-cta small { color: var(--gray-600); font-size: .74rem; font-weight: 600; }
+.header-cta small { color: var(--gray-600); font-size: .74rem; font-weight: 600; transition: opacity .2s ease, max-height .2s ease; }
+
+/* Shrunk state once the page is scrolled — logo/padding shrink, contact info stays legible */
+.site-header.is-scrolled .header-top { padding: .4rem 0; }
+.site-header.is-scrolled .brand img { height: 74px; }
+.site-header.is-scrolled .contact-link .sub,
+.site-header.is-scrolled .header-cta small { opacity: 0; max-height: 0; overflow: hidden; }
+.site-header.is-scrolled .nav-list a { padding: .6rem 1.15rem; }
 
 .main-nav { background: var(--navy); }
 .main-nav .container { display: flex; align-items: center; justify-content: center; }
@@ -132,6 +139,7 @@ section { padding: 3.5rem 0; }
 .nav-list a {
   display: block; padding: .95rem 1.15rem; color: var(--white); text-decoration: none;
   font-weight: 600; font-size: .95rem; border-bottom: 3px solid transparent;
+  transition: padding .25s ease;
 }
 .nav-list a:hover, .nav-list a[aria-current="page"] { border-bottom-color: var(--red); background: rgba(255,255,255,.05); }
 
@@ -194,7 +202,9 @@ section { padding: 3.5rem 0; }
 .grid { display: grid; gap: 1.5rem; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 #services .grid-3 > :nth-child(7):last-child { grid-column: 2; }
-#services .section-head h2 { font-size: clamp(2.3rem, 4.8vw, 3.4rem); }
+#services .section-head h2,
+#why-choose-us .section-head h2,
+#reviews .section-head h2 { font-size: clamp(2.3rem, 4.8vw, 3.4rem); }
 #reviews .grid-3 > :nth-child(10):last-child { grid-column: 2; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -244,7 +254,6 @@ a.service-card:hover .link { text-decoration: underline; }
 .repair-list-strip span:last-child { border-right: none; }
 
 /* ---------- Why Choose Us ---------- */
-#why-choose-us .section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
 .check-list-2col { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 2.5rem; }
 
 /* ---------- Reviews ---------- */
@@ -424,6 +433,7 @@ a.service-card:hover .link { text-decoration: underline; }
 
 @media (max-width: 760px) {
   .brand img { height: 92px; }
+  .site-header.is-scrolled .brand img { height: 56px; }
   .header-top { flex-wrap: wrap; row-gap: .6rem; }
   .header-contact .contact-link.email { display: none; }
   .contact-link .sub { display: none; }
@@ -455,6 +465,7 @@ a.service-card:hover .link { text-decoration: underline; }
 
 @media (max-width: 500px) {
   .brand img { height: 74px; }
+  .site-header.is-scrolled .brand img { height: 48px; }
   .header-top { padding: .65rem 0; }
   .btn { width: 100%; }
   .hero-ctas .btn { width: auto; }
