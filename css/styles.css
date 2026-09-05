@@ -247,6 +247,33 @@ a.service-card:hover .link { text-decoration: underline; }
 .proof-card h3 { font-size: 1.05rem; margin-bottom: .35rem; }
 .proof-card p { color: var(--gray-600); font-size: .92rem; margin: 0; }
 
+/* ---------- Real before/after photo gallery ---------- */
+.ba-category-heading {
+  font-size: 1.05rem; color: var(--navy); margin: 2.25rem 0 1rem;
+  padding-bottom: .5rem; border-bottom: 2px solid var(--gray-200);
+}
+.ba-category-heading:first-of-type { margin-top: 1.5rem; }
+.ba-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.ba-pair { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--white); border: 1px solid var(--gray-200); }
+.ba-pair .ba-images { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray-200); }
+.ba-pair .ba-images figure { margin: 0; position: relative; }
+.ba-pair .ba-images img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.ba-pair .ba-images figcaption {
+  position: absolute; top: .5rem; left: .5rem; background: rgba(10, 37, 71, .85); color: var(--white);
+  font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  padding: .25rem .6rem; border-radius: 999px;
+}
+.ba-pair .ba-images figcaption.after { background: rgba(224, 26, 31, .9); }
+
+.work-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.work-photo-grid figure { margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.work-photo-grid img { width: 100%; height: 190px; object-fit: cover; display: block; }
+
+@media (max-width: 560px) {
+  .ba-pair .ba-images img { height: 150px; }
+  .work-photo-grid img { height: 150px; }
+}
+
 .repair-list-strip {
   display: flex; flex-wrap: wrap; gap: .6rem 0; padding: 1.25rem 0; color: var(--gray-700, #4b5768);
   font-size: .92rem;
