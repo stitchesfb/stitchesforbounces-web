@@ -256,6 +256,7 @@ a.service-card:hover .link { text-decoration: underline; }
 .ba-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
 .ba-pair { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--white); border: 1px solid var(--gray-200); }
 .ba-pair .ba-images { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray-200); }
+.ba-pair .ba-images.one { grid-template-columns: 1fr; }
 .ba-pair .ba-images figure { margin: 0; position: relative; }
 .ba-pair .ba-images img { width: 100%; height: 190px; object-fit: cover; display: block; }
 .ba-pair .ba-images figcaption {
@@ -421,7 +422,7 @@ a.service-card:hover .link { text-decoration: underline; }
 .site-footer { background: var(--navy-dark); color: rgba(255,255,255,.85); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 2.5rem; padding: 3.5rem 0 2.5rem; }
 .footer-grid h4 { color: var(--white); font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; }
-.footer-brand img { height: 66px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+.footer-brand img { height: 66px; margin-bottom: 1rem; filter: drop-shadow(0 0 1px rgba(255,255,255,.55)) drop-shadow(0 1px 3px rgba(0,0,0,.4)); }
 .footer-grid p { color: rgba(255,255,255,.68); font-size: .9rem; }
 .footer-grid ul { list-style: none; display: grid; gap: .6rem; }
 .footer-grid a { color: rgba(255,255,255,.78); text-decoration: none; font-size: .92rem; }
