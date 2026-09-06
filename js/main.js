@@ -135,4 +135,30 @@
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* Category photo carousels (Our Work page) */
+  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll(".carousel-slide"));
+    var thumbs = Array.prototype.slice.call(carousel.querySelectorAll(".carousel-thumb"));
+    if (!slides.length) return;
+    var current = 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle("is-active", i === current); });
+      thumbs.forEach(function (t, i) { t.classList.toggle("is-active", i === current); });
+      var activeThumb = thumbs[current];
+      if (activeThumb) activeThumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        show(parseInt(thumb.getAttribute("data-carousel-goto"), 10));
+      });
+    });
+    var prevBtn = carousel.querySelector("[data-carousel-prev]");
+    var nextBtn = carousel.querySelector("[data-carousel-next]");
+    if (prevBtn) prevBtn.addEventListener("click", function () { show(current - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { show(current + 1); });
+  });
 })();

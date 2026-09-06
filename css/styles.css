@@ -275,6 +275,53 @@ a.service-card:hover .link { text-decoration: underline; }
   .work-photo-grid img { height: 150px; }
 }
 
+/* ---------- Category carousel (Our Work page) ---------- */
+.category-carousel { margin-bottom: 2.5rem; }
+.carousel-stage {
+  position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  background: var(--gray-900, #111); aspect-ratio: 4 / 3; max-height: 560px;
+}
+.carousel-slide {
+  margin: 0; position: absolute; inset: 0; opacity: 0; visibility: hidden;
+  transition: opacity .25s ease;
+}
+.carousel-slide.is-active { opacity: 1; visibility: visible; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-slide .thumb-tag {
+  position: absolute; top: .75rem; left: .75rem; background: rgba(10, 37, 71, .88); color: var(--white);
+  font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  padding: .3rem .75rem; border-radius: 999px;
+}
+.carousel-slide .thumb-tag.after { background: rgba(224, 26, 31, .92); }
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(10, 37, 71, .55); color: var(--white); font-size: 1.5rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center; transition: background .15s ease;
+}
+.carousel-arrow:hover { background: rgba(10, 37, 71, .8); }
+.carousel-arrow.prev { left: .75rem; }
+.carousel-arrow.next { right: .75rem; }
+.carousel-thumbs { display: flex; gap: .5rem; overflow-x: auto; padding-top: .65rem; scrollbar-width: thin; }
+.carousel-thumb {
+  flex: 0 0 auto; width: 84px; height: 62px; padding: 0; border-radius: 6px; overflow: hidden;
+  border: 2px solid transparent; cursor: pointer; position: relative; background: none; opacity: .65;
+  transition: opacity .15s ease, border-color .15s ease;
+}
+.carousel-thumb:hover { opacity: .9; }
+.carousel-thumb.is-active { opacity: 1; border-color: var(--red); }
+.carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-thumb-tag {
+  position: absolute; bottom: .2rem; left: .2rem; background: rgba(10, 37, 71, .85); color: var(--white);
+  font-size: .58rem; font-weight: 700; padding: .05rem .35rem; border-radius: 3px;
+}
+.carousel-thumb-tag.after { background: rgba(224, 26, 31, .9); }
+
+@media (max-width: 560px) {
+  .carousel-stage { aspect-ratio: 4 / 3.4; }
+  .carousel-thumb { width: 68px; height: 50px; }
+}
+
 .repair-list-strip {
   display: flex; flex-wrap: wrap; gap: .6rem 0; padding: 1.25rem 0; color: var(--gray-700, #4b5768);
   font-size: .92rem;
