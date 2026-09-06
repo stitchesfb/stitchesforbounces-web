@@ -136,6 +136,23 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* Keep the sticky category index pinned right under the site header,
+     and offset category headings so anchor jumps land below both. */
+  var categoryNav = document.querySelector("[data-category-nav]");
+  if (categoryNav && siteHeader) {
+    var syncCategoryNavOffset = function () {
+      var headerH = siteHeader.offsetHeight;
+      categoryNav.style.top = headerH + "px";
+      var offset = headerH + categoryNav.offsetHeight + 16;
+      document.querySelectorAll(".ba-category-heading").forEach(function (h) {
+        h.style.scrollMarginTop = offset + "px";
+      });
+    };
+    syncCategoryNavOffset();
+    window.addEventListener("scroll", syncCategoryNavOffset, { passive: true });
+    window.addEventListener("resize", syncCategoryNavOffset);
+  }
+
   /* Category photo carousels (Our Work page) */
   document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll(".carousel-slide"));

@@ -248,9 +248,23 @@ a.service-card:hover .link { text-decoration: underline; }
 .proof-card p { color: var(--gray-600); font-size: .92rem; margin: 0; }
 
 /* ---------- Real before/after photo gallery ---------- */
+.category-nav {
+  position: sticky; top: 0; z-index: 15; background: var(--off-white); background: rgba(247, 246, 243, .96);
+  backdrop-filter: saturate(1.2) blur(2px); display: flex; gap: .5rem; flex-wrap: nowrap;
+  overflow-x: auto; padding: .85rem 0; margin-bottom: .5rem; border-bottom: 1px solid var(--gray-200);
+  scrollbar-width: thin;
+}
+.category-nav a {
+  flex: 0 0 auto; display: inline-block; background: var(--white); color: var(--navy);
+  border: 1px solid var(--gray-200); border-radius: 999px; padding: .45rem 1rem;
+  font-size: .82rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.category-nav a:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .ba-category-heading {
   font-size: 1.05rem; color: var(--navy); margin: 2.25rem 0 1rem;
   padding-bottom: .5rem; border-bottom: 2px solid var(--gray-200);
+  scroll-margin-top: 4.5rem;
 }
 .ba-category-heading:first-of-type { margin-top: 1.5rem; }
 .ba-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
