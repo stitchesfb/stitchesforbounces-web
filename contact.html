@@ -92,7 +92,8 @@
             <span>Every inflatable must be dry and clean before repair. If we need to clean or dry it first, an hourly fee applies. We do not repair residential "toy" castles.</span>
           </div>
 
-          <form class="form-card" data-simulated-form data-success-message="Thanks! Your quote request (and any photos) was received. We'll follow up by phone or email shortly." id="quote-form">
+          <form class="form-card" data-formspree-form="https://formspree.io/f/xrpgyvbl" data-success-message="Thanks! Your quote request (and any photos) was received. We'll follow up by phone or email shortly." id="quote-form">
+            <input type="hidden" name="_subject" value="Nueva cotización — Stitches For Bounces">
             <div class="form-grid">
               <div class="form-field">
                 <label for="q-name">Name<span class="req">*</span></label>
@@ -153,7 +154,7 @@
                   <div class="form-hint">JPG or PNG. You can add multiple photos.</div>
                 </div>
                 <div class="file-preview" id="quote-file-preview"></div>
-                <p class="form-hint">This is a static demo site — uploaded photos stay in your browser and are not sent anywhere. On the live site this would attach to your emailed quote request.</p>
+                <p class="form-hint">Photos are attached to the email we receive with your quote request.</p>
               </div>
             </div>
             <button class="btn btn-red btn-block" type="submit">Send Quote Request</button>
@@ -193,7 +194,8 @@
         <h2>Send us a message</h2>
         <p>Not ready for a full quote? Send a quick note and we'll get back to you.</p>
       </div>
-      <form class="form-card" style="max-width:600px;margin:0 auto;" data-simulated-form data-success-message="Thanks for reaching out! We'll respond as soon as we can.">
+      <form class="form-card" style="max-width:600px;margin:0 auto;" data-formspree-form="https://formspree.io/f/xrpgyvbl" data-success-message="Thanks for reaching out! We'll respond as soon as we can.">
+        <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Stitches For Bounces">
         <div class="form-grid">
           <div class="form-field">
             <label for="c-name">Name</label>
@@ -217,7 +219,7 @@
           </div>
         </div>
         <button class="btn btn-navy btn-block" type="submit">Send</button>
-        <p class="form-hint mt-2">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply. This form is a static demo — no data is stored or transmitted.</p>
+        <p class="form-hint mt-2">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
         <div class="form-status" role="status" aria-live="polite"></div>
       </form>
     </div>

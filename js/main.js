@@ -1,4 +1,4 @@
-// Stitches For Bounces — shared site behavior (no backend; forms are simulated)
+// Stitches For Bounces — shared site behavior
 (function () {
   "use strict";
 
@@ -89,8 +89,8 @@
     });
   });
 
-  /* Simulated form submission (static site — no backend/database) */
-  document.querySelectorAll("[data-simulated-form]").forEach(function (form) {
+  /* Form submission via Formspree (fetch, so we keep our own markup/animation) */
+  document.querySelectorAll("[data-formspree-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
@@ -101,22 +101,39 @@
         submitBtn.dataset.originalText = submitBtn.textContent;
         submitBtn.textContent = "Sending...";
       }
-      window.setTimeout(function () {
-        if (status) {
-          status.textContent = form.getAttribute("data-success-message") ||
-            "Thanks! Your request was received. We'll be in touch shortly.";
-          status.classList.remove("error");
-          status.classList.add("success", "is-visible");
-        }
-        form.reset();
-        var previews = form.querySelectorAll(".file-preview");
-        previews.forEach(function (p) { p.innerHTML = ""; });
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText;
-        }
-        if (status) status.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }, 700);
+
+      fetch(form.getAttribute("data-formspree-form"), {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Formspree responded with " + response.status);
+          if (status) {
+            status.textContent = form.getAttribute("data-success-message") ||
+              "Thanks! Your request was received. We'll be in touch shortly.";
+            status.classList.remove("error");
+            status.classList.add("success", "is-visible");
+          }
+          form.reset();
+          var previews = form.querySelectorAll(".file-preview");
+          previews.forEach(function (p) { p.innerHTML = ""; });
+        })
+        .catch(function () {
+          if (status) {
+            status.textContent = "Sorry, something went wrong sending your message. " +
+              "Please call us at (732) 279-4336 or email info@stitchesforbounces.com directly.";
+            status.classList.remove("success");
+            status.classList.add("error", "is-visible");
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText;
+          }
+          if (status) status.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
     });
   });
 
