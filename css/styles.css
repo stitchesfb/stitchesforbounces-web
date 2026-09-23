@@ -216,20 +216,46 @@ section { padding: 3.5rem 0; }
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   display: flex; flex-direction: column;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
-.service-card { padding: 0; }
+.service-card { padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.service-card:active,
+.service-card.is-touch-active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--red);
+}
 .service-card .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray-100); position: relative; }
 .service-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.photo-badge {
+  position: absolute; left: .9rem; right: .9rem; bottom: .9rem;
+  display: flex; flex-direction: column; align-items: center;
+  background: var(--navy); color: var(--white);
+  font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em;
+  text-align: center;
+  padding: .55rem 1rem .5rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--red);
+  box-shadow: 0 6px 16px rgba(10, 37, 71, .35);
+}
+.photo-badge::after {
+  content: ""; display: block; width: 1.75rem; height: 2px;
+  background: var(--red); margin-top: .3rem; border-radius: 2px;
+}
+@media (max-width: 640px) {
+  .photo-badge { font-size: .74rem; padding: .5rem .85rem .45rem; }
+}
 .service-card .body { padding: 1.5rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
 .service-card h3 { font-size: 1.08rem; margin-bottom: .5rem; }
 .service-card p { color: var(--gray-600); font-size: .92rem; margin-bottom: 1rem; flex: 1; }
 .service-card .link { font-weight: 700; color: var(--red); text-decoration: none; font-size: .9rem; display: inline-flex; align-items: center; gap: .3rem; }
 a.service-card { text-decoration: none; color: inherit; }
-a.service-card:hover .link { text-decoration: underline; }
+a.service-card:hover .link,
+a.service-card:active .link { text-decoration: underline; }
+a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 .process-card { text-align: center; }
 .process-card .thumb { aspect-ratio: 1 / 1; overflow: hidden; background: var(--gray-100); position: relative; }

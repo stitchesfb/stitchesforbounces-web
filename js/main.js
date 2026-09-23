@@ -195,4 +195,17 @@
     if (prevBtn) prevBtn.addEventListener("click", function () { show(current - 1); });
     if (nextBtn) nextBtn.addEventListener("click", function () { show(current + 1); });
   });
+
+  /* Reliable tap feedback on service cards (iOS Safari doesn't always
+     trigger :active on links without a touch listener present). */
+  document.querySelectorAll(".service-card").forEach(function (card) {
+    card.addEventListener("touchstart", function () {
+      card.classList.add("is-touch-active");
+    }, { passive: true });
+    ["touchend", "touchcancel"].forEach(function (evt) {
+      card.addEventListener(evt, function () {
+        card.classList.remove("is-touch-active");
+      });
+    });
+  });
 })();
