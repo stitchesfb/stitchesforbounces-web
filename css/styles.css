@@ -295,6 +295,15 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .video-copy { max-width: 420px; }
 }
 
+.serve-card { padding: 1.75rem 1.5rem; text-align: center; align-items: center; }
+.serve-icon {
+  width: 3.4rem; height: 3.4rem; border-radius: 50%; background: var(--navy);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+}
+.serve-icon svg { width: 1.7rem; height: 1.7rem; color: var(--white); }
+.serve-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+.serve-card p { color: var(--gray-600); font-size: .9rem; margin: 0; }
+
 .process-card { text-align: center; }
 .process-card .thumb { aspect-ratio: 1 / 1; overflow: hidden; background: var(--gray-100); position: relative; }
 .process-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
