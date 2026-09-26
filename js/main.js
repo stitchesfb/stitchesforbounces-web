@@ -196,6 +196,23 @@
     if (nextBtn) nextBtn.addEventListener("click", function () { show(current + 1); });
   });
 
+  /* Lite YouTube embed: only load the real iframe/player after a click,
+     so the page stays fast for visitors who never press play. */
+  document.querySelectorAll(".lite-yt").forEach(function (wrap) {
+    var videoId = wrap.getAttribute("data-yt-id");
+    if (!videoId) return;
+    wrap.addEventListener("click", function () {
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1&rel=0&modestbranding=1");
+      iframe.setAttribute("title", "YouTube video player");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+      iframe.setAttribute("allowfullscreen", "");
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+    }, { once: true });
+  });
+
   /* Reliable tap feedback on service cards (iOS Safari doesn't always
      trigger :active on links without a touch listener present). */
   document.querySelectorAll(".service-card").forEach(function (card) {
