@@ -209,7 +209,6 @@ section { padding: 3.5rem 0; }
 #reviews .grid-3 > :nth-child(10):last-child { grid-column: 2; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
-#who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: 2 / span 2; }
 
 .card {
   background: var(--white);
@@ -296,6 +295,8 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .video-copy { max-width: 420px; }
 }
 
+.serve-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+.serve-grid .serve-card { flex: 0 1 calc(33.333% - 1rem); min-width: 260px; }
 .serve-card { padding: 1.75rem 1.5rem; text-align: center; align-items: center; }
 .serve-icon {
   width: 3.4rem; height: 3.4rem; border-radius: 50%; background: var(--navy);
@@ -601,7 +602,7 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   #reviews .grid-3 > :nth-child(10):last-child { grid-column: auto; }
-  #who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: 1 / span 2; }
+  .serve-grid .serve-card { flex: 0 1 calc(50% - .75rem); }
   .proof-grid { grid-template-columns: 1fr; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -633,7 +634,7 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .check-list-2col { grid-template-columns: 1fr; }
   #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   #reviews .grid-3 > :nth-child(10):last-child { grid-column: auto; }
-  #who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: auto; }
+  .serve-grid .serve-card { flex: 0 1 100%; }
   .cta-banner .container { flex-direction: column; text-align: center; }
   .cta-banner .msg { flex-direction: column; }
   section { padding: 2.5rem 0; }
