@@ -209,6 +209,7 @@ section { padding: 3.5rem 0; }
 #reviews .grid-3 > :nth-child(10):last-child { grid-column: 2; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
+#who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: 2 / span 2; }
 
 .card {
   background: var(--white);
@@ -600,6 +601,7 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   #reviews .grid-3 > :nth-child(10):last-child { grid-column: auto; }
+  #who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: 1 / span 2; }
   .proof-grid { grid-template-columns: 1fr; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -631,6 +633,7 @@ a.service-card:focus-visible { outline: 2px solid var(--red); outline-offset: 2p
   .check-list-2col { grid-template-columns: 1fr; }
   #services .grid-3 > :nth-child(7):last-child { grid-column: auto; }
   #reviews .grid-3 > :nth-child(10):last-child { grid-column: auto; }
+  #who-we-serve .grid-4 > :nth-child(5):last-child { grid-column: auto; }
   .cta-banner .container { flex-direction: column; text-align: center; }
   .cta-banner .msg { flex-direction: column; }
   section { padding: 2.5rem 0; }
